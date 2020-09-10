@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo02.css">
+</head>
+<body>
+    <div class="badge badge-primary text-wrap" style="width: 6rem;">
+        Ejercicio 02
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <p>a. Modificar el estilo: Color</p>
+                <div>
+                    <p> Fondo: 
+                        <button class="rojo" onclick="rojo()"></button>
+                        <button class="azul" onclick="azul()"></button>
+                        <button class="verde" onclick="verde()"></button>
+                        <button class="amarillo" onclick="amarillo()"></button>
+                    </p>
+                    <div id="d1"></div>
+                    <p> Borde:
+                        <button class="negro" onclick="negro()"></button>
+                        <button class="blanco" onclick="blanco()"></button>
+                        <button class="violeta" onclick="violeta()"></button>
+                        <button class="rosado" onclick="rosado()"></button>
+                    </p>
+                </div>
+            </div>
+            <div class="col-6">
+                <p>b. Modificar el estilo: Opacidad</p>
+                <div>
+                    <img  src="imagen/machupicchu.jpg" alt="Machupicchu">
+                </div>
+                <br/>
+                <p>
+                    <button class="btn btn-dark btn-lg" onclick="opacar()">Opacar</button>
+                    <button class="btn btn-light btn-lg" onclick="aclarar()">Aclarar</button>
+                </p>
+                
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                <p>c. Modificar el estilo: Ocultar</p>
+                <div class="alert alert-success" role="alert">
+                    Este mensaje desaparecerá...
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true" onclick="cerrar()">&times;</span>
+                      </button>
+                </div>
+            </div>
+            <div class="col-6">
+                <p>d. Modificar el estilo: Aparecer</p>
+                <div><button class="btn btn-danger" onclick="boton()">Mostrar Modal</button></div>
+                <!--Modal-->
+                <div class="modal fade" id="modal">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Modal Ejercicio 02</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"  onclick="simbolo()">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Este modal es controlado por JS
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" onclick="simbolo()">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <!--Fin Modal-->
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var x=1;
+    function rojo(){document.getElementById("d1").style.backgroundColor="red"; }
+    function azul(){document.getElementById("d1").style.backgroundColor="blue"; }
+    function verde(){document.getElementById("d1").style.backgroundColor="green"; }
+    function amarillo(){document.getElementById("d1").style.backgroundColor="yellow"; }
+    function negro(){document.getElementById("d1").style.backgroundColor="orange"; }
+    function blanco(){document.getElementById("d1").style.backgroundColor="white"; }
+    function violeta(){document.getElementById("d1").style.backgroundColor="violet"; }
+    function rosado(){document.getElementById("d1").style.backgroundColor="pink"; }
+    function opacar(){
+        x=x-0.1;
+        var imagen = document.getElementsByTagName("img")[0];
+        imagen.style.opacity=x;
+        if(x<0.6){
+            x=1;
+            imagen.style.opacity=x;
+        }
+    }
+    function aclarar(){
+        x=x+0.1;
+        var imagen = document.getElementsByTagName("img")[0];
+        imagen.style.opacity=x;
+        if(x>1){
+            x=1;
+            imagen.style.opacity=x;
+        }
+    }
+    function cerrar(){
+        var letra = document.getElementsByClassName("alert alert-success")[0];
+        letra.innerHTML="";
+        letra.style.backgroundColor="white";
+        letra.style.borderColor="white";
+    }
+    function boton(){
+        var hola=document.getElementById("modal").className="modal fade show";
+        document.getElementById("modal").style.display="block";
+    }
+    function simbolo(){
+        document.getElementById("modal").style.display="none";
+    }
+</script>
+</body>
+</html>

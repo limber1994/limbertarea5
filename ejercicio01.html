@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="badge badge-primary text-wrap" style="width: 6rem;">
+        Ejercicio 01
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-4">
+            <p>a. Modificar el contenido (texto) del párrafo</p>
+            <div>
+                <button class="btn btn-outline-danger" onclick="modificar()">Mostrar Texto</button>
+                <br/>
+                <p id="texto" class="border">...</p>
+            </div>
+          </div>
+          <div class="col-4">
+            <p>b. Mostrar el texto que se escribe en la entrada dentro del párrafo</p>
+            <div>
+                <label for="nombre">Texto</label>
+                <input type="text" name="nombre" id="nombre">
+                <div><button class="btn btn-outline-warning" onclick="modificar2()">Mostrar Texto</button></div>
+                <p id="texto2" class="border">....</p>
+            </div>
+          </div>
+          <div class="col-4">
+            <p>c. Modificar la imagen: Apagado/Encendido</p>
+            <div>
+                <button class="btn btn-outline-secondary" onclick="modificar3()">Cambiar</button>
+                <img id="imagen" src="imagen/pic_bulboff.gif" alt="Apagado">
+            </div>
+          </div>
+        </div>
+      
+      <hr>
+      <div class="row">
+        <div class="col-4">
+          <p>d. Lanzar Diálogo Alerta</p>
+          <div>
+              <button class="btn btn-outline-primary" onclick="modificar4()">Mostrar Alerta</button>
+              <br/>
+              <p id="tAlerta" class="border">...</p>
+          </div>
+        </div>
+        <div class="col-4">
+          <p>e. Mostrar Diálogo Confirmación</p>
+          <div>
+            <button class="btn btn-outline-dark" onclick="modificar5()">Mostrar Confirmación</button>
+            <br/>
+            <p id="tConfirmación" class="border">...</p>
+          </div>
+        </div>
+        <div class="col-4">
+          <p>f. Mostrar Diálogo Réplica</p>
+          <div>
+            <button class="btn btn-outline-success" onclick="modificar6()">Mostrar Réplica</button>
+            <br/>
+            <p id="tReplica" class="border">...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var i,j,k;
+      function modificar(){
+        var a = document.getElementById("texto");
+        a.innerHTML="QUISPE CACERES LIMBER ANTONIO";
+      }
+      function modificar2(){
+        var b = document.getElementById("nombre").value;
+        document.getElementById("texto2").innerHTML=b;
+      }
+      function modificar3(){
+        var c = document.getElementById("imagen");
+        c.src='imagen/pic_bulbon.gif';
+      }
+      function modificar4(){
+        alert('Este es dialogo Alerta');
+        var d = document.getElementById("tAlerta");
+        d.innerHTML="Se mostro un dialogo de alerta";
+      }
+      function modificar5(){
+        var e;
+        var i = confirm("¿Esta deacuerdo en cerrar el dialogo?");
+        if(i==true){
+          e="El usuario eligio ACEPTAR";
+        }else{
+          e="El usuario eligio CANCELAR";
+        }
+        document.getElementById("tConfirmación").innerHTML=e;
+      }
+      function modificar6(){
+        var f = prompt("¿Puede dejarnos un mensaje?");
+        if(f != null){
+          document.getElementById("tReplica").innerHTML="El usuario escribio "+f;
+        }
+      }
+    </script>
+</body>
+</html>
