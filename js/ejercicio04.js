@@ -128,7 +128,7 @@ function sumaR(){
     }
     c.value=z;
 }
-function retarR(){
+function restarR(){
     var x,y;
     var z;
     var resultado;
